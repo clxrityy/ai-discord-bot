@@ -1,7 +1,7 @@
 # ai-discord-bot template
 
 ```zsh
-git clone https://github.com/clxrityy/ai-discord-template
+git clone https://github.com/clxrityy/ai-discord-bot
 ```
 
 ```zsh
