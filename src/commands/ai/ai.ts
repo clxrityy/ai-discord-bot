@@ -1,6 +1,7 @@
+import config from "../../config";
 import query from "../../lib/query";
 import { SlashCommand } from "../../utils/types";
-import { SlashCommandBuilder } from "discord.js";
+import { ColorResolvable, EmbedBuilder, SlashCommandBuilder } from "discord.js";
 
 const ai: SlashCommand = {
     data: new SlashCommandBuilder()
@@ -11,7 +12,7 @@ const ai: SlashCommand = {
             .setDescription("The prompt to give")
             .setRequired(true)
             .setMinLength(2)
-            .setMaxLength(500)
+            .setMaxLength(256)
     ),
     userPermissions: [],
     botPermissions: [],
@@ -22,19 +23,28 @@ const ai: SlashCommand = {
 
         const prompt = interaction.options.getString("prompt");
 
+        const embed = new EmbedBuilder()
+            .setAuthor({ name: interaction.user.displayName, iconURL: interaction.user.defaultAvatarURL })
+            .setTitle(prompt)
+
         // defer the reply to give the openai query time
         await interaction.deferReply().catch(() => null)
         
         const response = await query(prompt, guildId);
 
         if (response === undefined || response === null || !response) {
-            return await interaction.editReply({ content: "An error occured" })
+            embed.setDescription("An error occured")
+                .setColor(config.colors.error as ColorResolvable)
+            return await interaction.editReply({embeds: [embed] })
         }
         if (interaction.replied) {
             return;
         }
         if (interaction.deferred) {
-            return await interaction.editReply({ content: response });
+            embed.setDescription(response)
+                .setColor(config.colors.primary as ColorResolvable)
+
+            return await interaction.editReply({ embeds: [embed] });
         }
 
         return;
