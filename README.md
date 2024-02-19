@@ -118,6 +118,8 @@ git clone https://github.com/clxrityy/ai-discord-bot.git .
 cat > .env >> # your variables
 ```
 
+#### deploy
+
 - install `pm2`
 
 ```ubuntu
