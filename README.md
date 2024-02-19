@@ -1,6 +1,6 @@
 # ai-discord-bot template
 
-## 🔗 [Invite](https://discord.com/api/oauth2/authorize?client_id=1207469340149026837&permissions=2147483648&scope=bot)
+### 🔗 [Invite](https://discord.com/api/oauth2/authorize?client_id=1207469340149026837&permissions=2147483648&scope=bot)
 
 ### 📖 [Read the guide](https://dev.to/clxrityy/how-to-create-a-dynamic-ai-discord-bot-with-typescript-3gjn)
 
