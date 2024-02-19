@@ -1,15 +1,8 @@
 # ai-discord-bot template
 
-```zsh
-git clone https://github.com/clxrityy/ai-discord-bot
-```
-
-```zsh
-pnpm install
-```
+[🔗 Invite](https://discord.com/api/oauth2/authorize?client_id=1207469340149026837&permissions=2147483648&scope=bot)
 
 ---
-
 
 ## configuration
 
@@ -50,12 +43,6 @@ MONGO_URI=
 
 ---
 
-```zsh
-pnpm run dev
-```
-
----
-
 ## commands
 
 - `/ai` **`[prompt]`**
@@ -68,3 +55,80 @@ pnpm run dev
     - `view`
     - `reset`
     - `help`
+
+---
+
+## deployment
+
+- create and connect to an [AWS instance](https://ca-central-1.console.aws.amazon.com/ec2/home?c=ec2&p=pm&region=ca-central-1&z=1#Home:)
+
+#### environment set up
+
+```ubuntu
+sudo apt update
+```
+
+- install node & npm 
+
+```ubuntu
+sudo apt install nodejs
+```
+```
+sudo apt install npm
+```
+
+- set to the latest node version
+
+```
+sudo n 21.6.2
+```
+
+- check for the latest node version
+
+```ubuntu
+node --version
+```
+
+- if you're stealing an earlier version, run
+
+```ubuntu
+hash -r
+```
+
+#### bot set up
+
+- make a directory for the bot
+
+```ubuntu
+mkdir bot
+```
+```ubuntu
+cd bot
+```
+
+- clone the repo into the bot folder
+
+```ubuntu
+git clone https://github.com/clxrityy/ai-discord-bot.git .
+```
+
+- input your environment variables
+
+```ubuntu
+cat > .env >> # your variables
+```
+
+- install `pm2`
+
+```ubuntu
+sudo npm i pm2 -g
+```
+
+- build and then deploy from `/dist`
+
+```ubuntu
+npm run build
+```
+```ubuntu
+pm2 start ./dist/index.js --name bot-name
+```
