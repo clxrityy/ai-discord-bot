@@ -24,8 +24,8 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0
       openai:
-        specifier: ^4.56.0
-        version: 4.56.0
+        specifier: ^4.67.1
+        version: 4.67.1
     devDependencies:
       ts-node:
         specifier: ^10.9.2
@@ -401,8 +401,8 @@ packages:
     resolution: {integrity: sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==}
     engines: {node: '>=0.10.0'}
 
-  openai@4.56.0:
-    resolution: {integrity: sha512-zcag97+3bG890MNNa0DQD9dGmmTWL8unJdNkulZzWRXrl+QeD+YkBI4H58rJcwErxqGK6a0jVPZ4ReJjhDGcmw==}
+  openai@4.67.1:
+    resolution: {integrity: sha512-2YbRFy6qaYRJabK2zLMn4txrB2xBy0KP5g/eoqeSPTT31mIJMnkT75toagvfE555IKa2RdrzJrZwdDsUipsAMw==}
     hasBin: true
     peerDependencies:
       zod: ^3.23.8
@@ -883,7 +883,7 @@ snapshots:
 
   normalize-path@3.0.0: {}
 
-  openai@4.56.0:
+  openai@4.67.1:
     dependencies:
       '@types/node': 18.19.17
       '@types/node-fetch': 2.6.11
